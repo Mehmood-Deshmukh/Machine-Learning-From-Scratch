@@ -33,6 +33,7 @@ class KMeans:
 
             if self.plot_steps:
                 self.plot()
+            
             # calculate new centroids from the clusters
             centroids_old = self.centroid
             self.centroid = self.get_centroids(self.clusters)
@@ -41,7 +42,6 @@ class KMeans:
             if self.is_converged(centroids_old, self.centroid):
                 print(f'Converged at { _ } iterations')
                 break
-            
             
             if self.plot_steps:
                 self.plot()
@@ -109,5 +109,6 @@ if __name__ == "__main__":
 
     k = KMeans(K=clusters, max_iters=150, plot_steps=False)
     y_pred = k.predict(X)
+
 
     k.plot()
